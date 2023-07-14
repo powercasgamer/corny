@@ -49,8 +49,8 @@ subprojects {
             publishing(true)
         }
 
-        publishReleasesTo("broccolai", "https://repo.broccol.ai/releases")
-        publishSnapshotsTo("broccolai", "https://repo.broccol.ai/snapshots")
+    publishSnapshotsTo("drink", "https://new-repo.deltapvp.net/snapshots")
+    publishReleasesTo("drink", "https://new-repo.deltapvp.net/releases")
 
         configurePublications {
             pom {
