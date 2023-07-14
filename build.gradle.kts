@@ -1,7 +1,6 @@
 import net.kyori.indra.IndraPlugin
 import net.kyori.indra.IndraPublishingPlugin
 import net.kyori.indra.IndraCheckstylePlugin
-import net.kyori.indra.repository.sonatypeSnapshots
 
 plugins {
     id("net.kyori.indra")
@@ -21,7 +20,7 @@ subprojects {
 
     repositories {
         mavenCentral()
-        sonatypeSnapshots()
+	maven("https://oss.sonatype.org/content/repositories/snapshots/")
     }
 
     dependencies {
