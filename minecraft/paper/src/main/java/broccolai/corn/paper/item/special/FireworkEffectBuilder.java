@@ -5,11 +5,12 @@ import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkEffectMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link FireworkEffectMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link FireworkEffectMeta}.
  */
 @SuppressWarnings("unused")
 public final class FireworkEffectBuilder extends AbstractPaperItemBuilder<FireworkEffectBuilder, FireworkEffectMeta> {
@@ -19,41 +20,41 @@ public final class FireworkEffectBuilder extends AbstractPaperItemBuilder<Firewo
     }
 
     /**
-     * Creates a {@code FireworkEffectBuilder}.
+     * Creates a {@link FireworkEffectBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code FireworkEffectBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link FireworkEffectBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull FireworkEffectBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new FireworkEffectBuilder(itemStack, castMeta(itemStack.getItemMeta(), FireworkEffectMeta.class));
     }
 
     /**
-     * Creates a {@code FireworkEffectBuilder}.
+     * Creates a {@link FireworkEffectBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code FireworkEffectBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link FireworkEffectBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull FireworkEffectBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return FireworkEffectBuilder.of(getItem(material));
     }
 
     /**
-     * Gets the {@code FireworkEffect}.
+     * Gets the {@link FireworkEffect}.
      *
-     * @return the {@code FireworkEffect}
+     * @return the {@link FireworkEffect}
      */
     public @Nullable FireworkEffect fireworkEffect() {
         return this.itemMeta.getEffect();
     }
 
     /**
-     * Sets the {@code FireworkEffect}. Pass {@code null} to reset.
+     * Sets the {@link FireworkEffect}. Pass {@code null} to reset.
      *
-     * @param fireworkEffect the {@code FireworkEffect}
+     * @param fireworkEffect the {@link FireworkEffect}
      * @return the builder
      */
     public @NonNull FireworkEffectBuilder fireworkEffect(final @Nullable FireworkEffect fireworkEffect) {

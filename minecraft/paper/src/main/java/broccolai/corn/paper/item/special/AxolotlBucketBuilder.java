@@ -5,10 +5,11 @@ import org.bukkit.Material;
 import org.bukkit.entity.Axolotl;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.AxolotlBucketMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link AxolotlBucketMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link AxolotlBucketMeta}.
  */
 @SuppressWarnings("unused")
 public final class AxolotlBucketBuilder extends AbstractPaperItemBuilder<AxolotlBucketBuilder, AxolotlBucketMeta> {
@@ -18,34 +19,34 @@ public final class AxolotlBucketBuilder extends AbstractPaperItemBuilder<Axolotl
     }
 
     /**
-     * Creates an {@code AxolotlBucketBuilder}.
+     * Creates an {@link AxolotlBucketBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code AxolotlBucketBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link AxolotlBucketBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull AxolotlBucketBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new AxolotlBucketBuilder(itemStack, castMeta(itemStack.getItemMeta(), AxolotlBucketMeta.class));
     }
 
     /**
-     * Creates an {@code AxolotlBucketBuilder}.
+     * Creates an {@link AxolotlBucketBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code AxolotlBucketBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link AxolotlBucketBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull AxolotlBucketBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return AxolotlBucketBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code AxolotlBucketBuilder} of type {@link Material#AXOLOTL_BUCKET}. A convenience method.
+     * Creates a {@link AxolotlBucketBuilder} of type {@link Material#AXOLOTL_BUCKET}. A convenience method.
      *
-     * @return instance of {@code AxolotlBucketBuilder}
+     * @return instance of {@link AxolotlBucketBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull AxolotlBucketBuilder ofAxolotlBucket() throws IllegalArgumentException {
         return ofType(Material.AXOLOTL_BUCKET);

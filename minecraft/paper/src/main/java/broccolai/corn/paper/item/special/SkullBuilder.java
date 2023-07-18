@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -27,34 +28,34 @@ public final class SkullBuilder extends AbstractPaperItemBuilder<SkullBuilder, S
     }
 
     /**
-     * Creates a {@code SkullBuilder}.
+     * Creates a {@link SkullBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code SkullBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link SkullBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull SkullBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new SkullBuilder(itemStack, castMeta(itemStack.getItemMeta(), SkullMeta.class));
     }
 
     /**
-     * Creates a {@code SkullBuilder}.
+     * Creates a {@link SkullBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code SkullBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link SkullBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull SkullBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return SkullBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code SkullBuilder} of type {@link Material#PLAYER_HEAD}. A convenience method.
+     * Creates a {@link SkullBuilder} of type {@link Material#PLAYER_HEAD}. A convenience method.
      *
-     * @return instance of {@code SkullBuilder}
+     * @return instance of {@link SkullBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull SkullBuilder ofPlayerHead() throws IllegalArgumentException {
         return ofType(Material.PLAYER_HEAD);
@@ -99,18 +100,18 @@ public final class SkullBuilder extends AbstractPaperItemBuilder<SkullBuilder, S
     }
 
     /**
-     * Gets the {@code PlayerProfile}.
+     * Gets the {@link PlayerProfile}.
      *
-     * @return the {@code PlayerProfile}
+     * @return the {@link PlayerProfile}
      */
     public @Nullable PlayerProfile playerProfile() {
         return this.itemMeta.getPlayerProfile();
     }
 
     /**
-     * Sets the {@code PlayerProfile}. Pass {@code null} to reset.
+     * Sets the {@link PlayerProfile}. Pass {@code null} to reset.
      *
-     * @param playerProfile the {@code PlayerProfile}
+     * @param playerProfile the {@link PlayerProfile}
      * @return the builder
      */
     public @NonNull SkullBuilder playerProfile(final @Nullable PlayerProfile playerProfile) {

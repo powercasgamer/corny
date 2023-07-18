@@ -4,13 +4,14 @@ import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MapMeta;
 import org.bukkit.map.MapView;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link MapMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link MapMeta}.
  */
 @SuppressWarnings("unused")
 public final class MapBuilder extends AbstractPaperItemBuilder<MapBuilder, MapMeta> {
@@ -20,41 +21,41 @@ public final class MapBuilder extends AbstractPaperItemBuilder<MapBuilder, MapMe
     }
 
     /**
-     * Creates a {@code MapBuilder}.
+     * Creates a {@link MapBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code MapBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link MapBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull MapBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new MapBuilder(itemStack, castMeta(itemStack.getItemMeta(), MapMeta.class));
     }
 
     /**
-     * Creates a {@code MapBuilder}.
+     * Creates a {@link MapBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code MapBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link MapBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull MapBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return MapBuilder.of(getItem(material));
     }
 
     /**
-     * Gets the {@code Color}.
+     * Gets the {@link Color}.
      *
-     * @return the {@code Color}
+     * @return the {@link Color}
      */
     public @Nullable Color color() {
         return this.itemMeta.getColor();
     }
 
     /**
-     * Sets the {@code Color}. Pass {@code null} to reset.
+     * Sets the {@link Color}. Pass {@code null} to reset.
      *
-     * @param color the {@code Color}
+     * @param color the {@link Color}
      * @return the builder
      */
     public @NonNull MapBuilder color(final @Nullable Color color) {
@@ -83,18 +84,18 @@ public final class MapBuilder extends AbstractPaperItemBuilder<MapBuilder, MapMe
     }
 
     /**
-     * Gets the {@code MapView}.
+     * Gets the {@link MapView}.
      *
-     * @return the {@code MapView}
+     * @return the {@link MapView}
      */
     public @Nullable MapView mapView() {
         return this.itemMeta.getMapView();
     }
 
     /**
-     * Sets the {@code MapView}. Pass {@code null} to reset.
+     * Sets the {@link MapView}. Pass {@code null} to reset.
      *
-     * @param mapView the {@code MapView}
+     * @param mapView the {@link MapView}
      * @return the builder
      */
     public @NonNull MapBuilder mapView(final @Nullable MapView mapView) {

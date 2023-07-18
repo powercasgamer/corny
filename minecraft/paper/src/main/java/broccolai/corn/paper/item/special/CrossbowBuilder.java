@@ -4,13 +4,14 @@ import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.CrossbowMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link CrossbowMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link CrossbowMeta}.
  */
 @SuppressWarnings("unused")
 public final class CrossbowBuilder extends AbstractPaperItemBuilder<CrossbowBuilder, CrossbowMeta> {
@@ -20,34 +21,34 @@ public final class CrossbowBuilder extends AbstractPaperItemBuilder<CrossbowBuil
     }
 
     /**
-     * Creates a {@code CrossbowBuilder}.
+     * Creates a {@link CrossbowBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code CrossbowBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link CrossbowBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull CrossbowBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new CrossbowBuilder(itemStack, castMeta(itemStack.getItemMeta(), CrossbowMeta.class));
     }
 
     /**
-     * Creates a {@code CrossbowBuilder}.
+     * Creates a {@link CrossbowBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code CrossbowBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link CrossbowBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull CrossbowBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return CrossbowBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code CrossbowBuilder} of type {@link Material#CROSSBOW}. A convenience method.
+     * Creates a {@link CrossbowBuilder} of type {@link Material#CROSSBOW}. A convenience method.
      *
-     * @return instance of {@code CrossbowBuilder}
+     * @return instance of {@link CrossbowBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull CrossbowBuilder ofCrossbow() throws IllegalArgumentException {
         return ofType(Material.CROSSBOW);

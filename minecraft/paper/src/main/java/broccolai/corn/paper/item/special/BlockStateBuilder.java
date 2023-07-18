@@ -5,10 +5,11 @@ import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link BlockStateMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link BlockStateMeta}.
  */
 @SuppressWarnings("unused")
 public final class BlockStateBuilder extends AbstractPaperItemBuilder<BlockStateBuilder, BlockStateMeta> {
@@ -18,41 +19,41 @@ public final class BlockStateBuilder extends AbstractPaperItemBuilder<BlockState
     }
 
     /**
-     * Creates a {@code BlockStateBuilder}.
+     * Creates a {@link BlockStateBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code BlockStateBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link BlockStateBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BlockStateBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new BlockStateBuilder(itemStack, castMeta(itemStack.getItemMeta(), BlockStateMeta.class));
     }
 
     /**
-     * Creates a {@code BlockStateBuilder}.
+     * Creates a {@link BlockStateBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code BlockStateBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link BlockStateBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BlockStateBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return BlockStateBuilder.of(getItem(material));
     }
 
     /**
-     * Gets a copy of {@code BlockState}. Creates a new one if it doesn't currently exist.
+     * Gets a copy of {@link BlockState}. Creates a new one if it doesn't currently exist.
      *
-     * @return the {@code BlockState}
+     * @return the {@link BlockState}
      */
     public @NonNull BlockState blockState() {
         return this.itemMeta.getBlockState();
     }
 
     /**
-     * Sets the {@code BlockState}.
+     * Sets the {@link BlockState}.
      *
-     * @param blockState the {@code BlockState}
+     * @param blockState the {@link BlockState}
      * @return the builder
      */
     public @NonNull BlockStateBuilder blockState(final @NonNull BlockState blockState) {
@@ -61,9 +62,9 @@ public final class BlockStateBuilder extends AbstractPaperItemBuilder<BlockState
     }
 
     /**
-     * Gets whether a {@code BlockState} is currently attached.
+     * Gets whether a {@link BlockState} is currently attached.
      *
-     * @return whether a {@code BlockState} is currently attached
+     * @return whether a {@link BlockState} is currently attached
      */
     public boolean hasBlockState() {
         return this.itemMeta.hasBlockState();

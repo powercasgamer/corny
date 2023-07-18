@@ -4,10 +4,11 @@ import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import com.destroystokyo.paper.inventory.meta.ArmorStandMeta;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link ArmorStandMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link ArmorStandMeta}.
  */
 @SuppressWarnings("unused")
 public final class ArmorStandBuilder extends AbstractPaperItemBuilder<ArmorStandBuilder, ArmorStandMeta> {
@@ -17,34 +18,34 @@ public final class ArmorStandBuilder extends AbstractPaperItemBuilder<ArmorStand
     }
 
     /**
-     * Creates an {@code ArmorStandBuilder}.
+     * Creates an {@link ArmorStandBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code ArmorStandBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link ArmorStandBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull ArmorStandBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new ArmorStandBuilder(itemStack, castMeta(itemStack.getItemMeta(), ArmorStandMeta.class));
     }
 
     /**
-     * Creates an {@code ArmorStandBuilder}.
+     * Creates an {@link ArmorStandBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code ArmorStandBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link ArmorStandBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull ArmorStandBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return ArmorStandBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code ArmorStandBuilder} of type {@link Material#ARMOR_STAND}. A convenience method.
+     * Creates a {@link ArmorStandBuilder} of type {@link Material#ARMOR_STAND}. A convenience method.
      *
-     * @return instance of {@code ArmorStandBuilder}
+     * @return instance of {@link ArmorStandBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull ArmorStandBuilder ofArmorStand() throws IllegalArgumentException {
         return ofType(Material.ARMOR_STAND);

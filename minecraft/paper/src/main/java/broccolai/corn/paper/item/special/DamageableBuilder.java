@@ -4,11 +4,12 @@ import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link Damageable}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link Damageable}.
  */
 @SuppressWarnings("unused")
 public final class DamageableBuilder extends AbstractPaperItemBuilder<DamageableBuilder, Damageable> {
@@ -18,23 +19,23 @@ public final class DamageableBuilder extends AbstractPaperItemBuilder<Damageable
     }
 
     /**
-     * Creates an {@code DamageableBuilder}.
+     * Creates an {@link DamageableBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code DamageableBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link DamageableBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull DamageableBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new DamageableBuilder(itemStack, castMeta(itemStack.getItemMeta(), Damageable.class));
     }
 
     /**
-     * Creates an {@code DamageableBuilder}.
+     * Creates an {@link DamageableBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code DamageableBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link DamageableBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull DamageableBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return DamageableBuilder.of(getItem(material));

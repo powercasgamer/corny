@@ -4,6 +4,7 @@ import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionEffect;
@@ -14,7 +15,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.List;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link PotionMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link PotionMeta}.
  */
 @SuppressWarnings("unused")
 public final class PotionBuilder extends AbstractPaperItemBuilder<PotionBuilder, PotionMeta> {
@@ -24,23 +25,23 @@ public final class PotionBuilder extends AbstractPaperItemBuilder<PotionBuilder,
     }
 
     /**
-     * Creates a {@code PotionBuilder}.
+     * Creates a {@link PotionBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code PotionBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link PotionBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull PotionBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new PotionBuilder(itemStack, castMeta(itemStack.getItemMeta(), PotionMeta.class));
     }
 
     /**
-     * Creates a {@code PotionBuilder}.
+     * Creates a {@link PotionBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code PotionBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link PotionBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull PotionBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return PotionBuilder.of(getItem(material));
@@ -75,7 +76,7 @@ public final class PotionBuilder extends AbstractPaperItemBuilder<PotionBuilder,
      * Adds a custom effect.
      *
      * @param customEffect the custom effect to add
-     * @param overwrite    whether to overwrite {@code PotionEffect}s of the same type
+     * @param overwrite    whether to overwrite {@link PotionEffect}s of the same type
      * @return the builder
      */
     public @NonNull PotionBuilder addCustomEffect(final @NonNull PotionEffect customEffect, final boolean overwrite) {
@@ -127,18 +128,18 @@ public final class PotionBuilder extends AbstractPaperItemBuilder<PotionBuilder,
     }
 
     /**
-     * Gets the base {@code PotionData}.
+     * Gets the base {@link PotionData}.
      *
-     * @return the base {@code PotionData}
+     * @return the base {@link PotionData}
      */
     public @NonNull PotionData basePotionData() {
         return this.itemMeta.getBasePotionData();
     }
 
     /**
-     * Sets the base {@code PotionData}.
+     * Sets the base {@link PotionData}.
      *
-     * @param basePotionData the base {@code PotionData}
+     * @param basePotionData the base {@link PotionData}
      * @return the builder
      */
     public @NonNull PotionBuilder basePotionData(final @NonNull PotionData basePotionData) {

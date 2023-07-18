@@ -5,13 +5,14 @@ import org.bukkit.Material;
 import org.bukkit.block.banner.Pattern;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.common.value.qual.IntRange;
 
 import java.util.List;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link BannerMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link BannerMeta}.
  */
 @SuppressWarnings("unused")
 public final class BannerBuilder extends AbstractPaperItemBuilder<BannerBuilder, BannerMeta> {
@@ -21,23 +22,23 @@ public final class BannerBuilder extends AbstractPaperItemBuilder<BannerBuilder,
     }
 
     /**
-     * Creates a {@code BannerBuilder}.
+     * Creates a {@link BannerBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code BannerBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link BannerBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BannerBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new BannerBuilder(itemStack, castMeta(itemStack.getItemMeta(), BannerMeta.class));
     }
 
     /**
-     * Creates a {@code SkullBuilder}.
+     * Creates a {@link SkullBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code SkullBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link SkullBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BannerBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return BannerBuilder.of(getItem(material));

@@ -28,19 +28,19 @@ import java.util.Set;
 public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M extends ItemMeta> {
 
     /**
-     * The {@code ItemStack} to modify during building. This will be cloned and
+     * The {@link ItemStack} to modify during building. This will be cloned and
      * returned upon {@link #build()}.
      */
     protected final @NonNull ItemStack itemStack;
     /**
-     * The {@code ItemMeta} to modify during building. This will be applied to
+     * The {@link ItemMeta} to modify during building. This will be applied to
      * the {@link #itemStack} upon {@link #build()}.
      */
     protected final @NonNull M itemMeta;
 
     /**
-     * @param itemStack the {@code ItemStack}
-     * @param itemMeta  the {@code ItemMeta}
+     * @param itemStack the {@link ItemStack}
+     * @param itemMeta  the {@link ItemMeta}
      */
     protected AbstractItemBuilder(final @NonNull ItemStack itemStack, final @NonNull M itemMeta) {
         this.itemStack = itemStack.clone();
@@ -70,11 +70,11 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Returns an {@code ItemStack} of {@code material} if it is an item,
+     * Returns an {@link ItemStack} of {@code material} if it is an item,
      * else throws an exception.
      *
      * @param material the material
-     * @return an {@code ItemStack} of type {@code material}
+     * @return an {@link ItemStack} of type {@code material}
      * @throws IllegalArgumentException if {@code material} is not an item
      */
     protected static @NonNull ItemStack getItem(final @NonNull Material material) throws IllegalArgumentException {
@@ -85,18 +85,18 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Gets the {@code Material}.
+     * Gets the {@link Material}.
      *
-     * @return the {@code Material}
+     * @return the {@link Material}
      */
     public @NonNull Material material() {
         return this.itemStack.getType();
     }
 
     /**
-     * Sets the {@code Material}.
+     * Sets the {@link Material}.
      *
-     * @param material the {@code Material}
+     * @param material the {@link Material}
      * @return the builder
      */
     public @NonNull B material(final @NonNull Material material) {
@@ -125,10 +125,10 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Gets data from the {@code ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
+     * Gets data from the {@link ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
      *
-     * @param key  the {@code NamespacedKey} to use
-     * @param type the {@code PersistentDataType to use}
+     * @param key  the {@link NamespacedKey} to use
+     * @param type the {@link PersistentDataType to use}
      * @param <T>  the primary object type of the data
      * @param <Z>  the retrieve object type of the data
      * @return the data
@@ -141,10 +141,10 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Adds data to the {@code ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
+     * Adds data to the {@link ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
      *
-     * @param key    the {@code NamespacedKey} to use
-     * @param type   the {@code PersistentDataType} to use
+     * @param key    the {link NamespacedKey} to use
+     * @param type   the {@link PersistentDataType} to use
      * @param object the data to set
      * @param <T>    the primary object type of the data
      * @param <Z>    the retrieve object type of the data
@@ -160,9 +160,9 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Removes data from the {@code ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
+     * Removes data from the {@link ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
      *
-     * @param key the {@code NamespacedKey} to use
+     * @param key the {@link NamespacedKey} to use
      * @return the builder
      */
     public @NonNull B removeData(
@@ -173,18 +173,18 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Gets the {@code ItemFlag}s.
+     * Gets the {@link ItemFlag}s.
      *
-     * @return the {@code ItemFlag}s
+     * @return the {@link ItemFlag}s
      */
     public @NonNull Set<ItemFlag> flags() {
         return this.itemMeta.getItemFlags();
     }
 
     /**
-     * Sets the {@code ItemFlag}s. Pass {@code null} to reset.
+     * Sets the {@link ItemFlag}s. Pass {@code null} to reset.
      *
-     * @param flags the {@code ItemFlag}s
+     * @param flags the {@link ItemFlag}s
      * @return the builder
      */
     public @NonNull B flags(final @Nullable List<ItemFlag> flags) {
@@ -200,9 +200,9 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Add an {@code ItemFlag}.
+     * Add an {@link ItemFlag}.
      *
-     * @param flag the {@code ItemFlag} to add
+     * @param flag the {@link ItemFlag} to add
      * @return the builder
      */
     public @NonNull B addFlag(final @NonNull ItemFlag... flag) {
@@ -211,9 +211,9 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Remove an {@code ItemFlag}.
+     * Remove an {@link ItemFlag}.
      *
-     * @param flag the {@code ItemFlag} to remove
+     * @param flag the {@link ItemFlag} to remove
      * @return the builder
      */
     public @NonNull B removeFlag(final @NonNull ItemFlag... flag) {
@@ -222,18 +222,18 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Gets the {@code Enchantment}s.
+     * Gets the {@link Enchantment}s.
      *
-     * @return the {@code Enchantment}s
+     * @return the {@link Enchantment}s
      */
     public @NonNull Map<Enchantment, Integer> enchants() {
         return new HashMap<>(this.itemStack.getEnchantments());
     }
 
     /**
-     * Sets the {@code Enchantment}s. Pass {@code null} to reset.
+     * Sets the {@link Enchantment}s. Pass {@code null} to reset.
      *
-     * @param enchants the {@code Enchantment}s
+     * @param enchants the {@link Enchantment}s
      * @return the builder
      */
     public @NonNull B enchants(final @Nullable Map<Enchantment, Integer> enchants) {
@@ -251,10 +251,10 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Adds an {@code Enchantment}.
+     * Adds an {@link Enchantment}.
      *
-     * @param enchantment the {@code Enchantment} to add
-     * @param level       the level of the {@code Enchantment}
+     * @param enchantment the {@link Enchantment} to add
+     * @param level       the level of the {@link Enchantment}
      * @return the builder
      */
     public @NonNull B addEnchant(final @NonNull Enchantment enchantment, final int level) {
@@ -263,9 +263,9 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Removes an {@code Enchantment}.
+     * Removes an {@link Enchantment}.
      *
-     * @param enchantment the {@code Enchantment} to remove
+     * @param enchantment the {@link Enchantment} to remove
      * @return the builder
      */
     public @NonNull B removeEnchant(final @NonNull Enchantment... enchantment) {
@@ -276,13 +276,13 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Sets whether the {@code ItemStack} is unbreakable.
+     * Sets whether the {@link ItemStack} is unbreakable.
      *
-     * @param unbreakable whether the {@code ItemStack} is unbreakable
+     * @param unbreakable whether the {@link ItemStack} is unbreakable
      * @return the builder
      */
     public @NonNull B unbreakable(final boolean unbreakable) {
-        itemMeta.setUnbreakable(unbreakable);
+        this.itemMeta.setUnbreakable(unbreakable);
         return (B) this;
     }
 
@@ -340,18 +340,18 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Gets the {@code AttributeModifier}s.
+     * Gets the {@link AttributeModifier}s.
      *
-     * @return the {@code AttributeModifier}s
+     * @return the {@link AttributeModifier}s
      */
     public @Nullable Multimap<Attribute, AttributeModifier> attributeModifiers() {
         return this.itemMeta.getAttributeModifiers();
     }
 
     /**
-     * Sets the {@code AttributeModifier}s. Pass {@code null} to reset.
+     * Sets the {@link AttributeModifier}s. Pass {@code null} to reset.
      *
-     * @param attributeModifiers the {@code AttributeModifier}s
+     * @param attributeModifiers the {@link AttributeModifier}s
      * @return the builder
      */
     public @NonNull B attributeModifiers(final @Nullable Multimap<Attribute, AttributeModifier> attributeModifiers) {
@@ -360,10 +360,10 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Adds an {@code AttributeModifier}.
+     * Adds an {@link AttributeModifier}.
      *
      * @param attribute         the attribute to modify
-     * @param attributeModifier the {@code AttributeModifier} to add
+     * @param attributeModifier the {@link AttributeModifier} to add
      * @return the builder
      */
     public @NonNull B addAttributeModifier(
@@ -375,10 +375,10 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Removes an {@code AttributeModifier}.
+     * Removes an {@link AttributeModifier}.
      *
      * @param attribute         the attribute to modify
-     * @param attributeModifier the {@code AttributeModifier} to remove
+     * @param attributeModifier the {@link AttributeModifier} to remove
      * @return the builder
      */
     public @NonNull B removeAttributeModifier(
@@ -390,9 +390,9 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Removes all {@code AttributeModifier}s for the given {@code attribute}.
+     * Removes all {@link AttributeModifier}s for the given {@code attribute}.
      *
-     * @param attribute the {@code Attribute}
+     * @param attribute the {@link Attribute}
      * @return the builder
      */
     public @NonNull B removeAttributeModifier(final @NonNull Attribute... attribute) {
@@ -403,9 +403,9 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     }
 
     /**
-     * Builds the {@code ItemStack} from the set properties.
+     * Builds the {@link ItemStack} from the set properties.
      *
-     * @return the built {@code ItemStack}
+     * @return the built {@link ItemStack}
      */
     public @NonNull ItemStack build() {
         this.itemStack.setItemMeta(this.itemMeta);

@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.checkerframework.common.value.qual.IntRange;
@@ -13,7 +14,7 @@ import java.util.List;
 
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link BookMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link BookMeta}.
  */
 @SuppressWarnings("unused")
 public final class BookBuilder extends AbstractPaperItemBuilder<BookBuilder, BookMeta> {
@@ -23,23 +24,23 @@ public final class BookBuilder extends AbstractPaperItemBuilder<BookBuilder, Boo
     }
 
     /**
-     * Creates a {@code BookBuilder}.
+     * Creates a {@link BookBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code BookBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link BookBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BookBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new BookBuilder(itemStack, castMeta(itemStack.getItemMeta(), BookMeta.class));
     }
 
     /**
-     * Creates a {@code BookBuilder}.
+     * Creates a {@link BookBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code BookBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link BookBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BookBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return BookBuilder.of(getItem(material));
@@ -88,7 +89,7 @@ public final class BookBuilder extends AbstractPaperItemBuilder<BookBuilder, Boo
     }
 
     /**
-     * Gets the {@code Generation}.
+     * Gets the {@link BookMeta.Generation}.
      *
      * @return the generation
      */
@@ -97,7 +98,7 @@ public final class BookBuilder extends AbstractPaperItemBuilder<BookBuilder, Boo
     }
 
     /**
-     * Sets the {@code Generation}. Pass {@code null} to reset.
+     * Sets the {@link BookMeta.Generation}. Pass {@code null} to reset.
      *
      * @param generation the generation
      * @return the builder

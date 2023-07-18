@@ -1,8 +1,8 @@
 package broccolai.corn.paper.item;
 
+import broccolai.corn.paper.util.ComponentUtil;
 import broccolai.corn.spigot.item.AbstractItemBuilder;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -22,8 +22,6 @@ import java.util.function.Consumer;
 @SuppressWarnings({"unchecked", "unused"})
 public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilder<B, M>, M extends ItemMeta>
         extends AbstractItemBuilder<B, M> {
-
-    private static final Component DISABLE_ITALICS = Component.empty().decoration(TextDecoration.ITALIC, false);
 
     protected AbstractPaperItemBuilder(final @NonNull ItemStack itemStack, final @NonNull M itemMeta) {
         super(itemStack, itemMeta);
@@ -56,7 +54,7 @@ public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilde
         }
 
         // sidestep default formatting by creating a dummy component and appending the component to that
-        this.itemMeta.displayName(DISABLE_ITALICS.append(name));
+        this.itemMeta.displayName(ComponentUtil.disableItalics(name));
 
         return (B) this;
     }
@@ -88,17 +86,14 @@ public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilde
         }
 
         // sidestep default formatting by creating a dummy component and appending the component to that
-        final @NonNull List<Component> toAdd = new ArrayList<>(lines);
-        toAdd.replaceAll(DISABLE_ITALICS::append);
-
-        this.itemMeta.lore(toAdd);
+        this.itemMeta.lore(ComponentUtil.disableItalicsList(lines));
         return (B) this;
     }
 
     /**
      * A utility method that converts the provided {@code lines} into a
-     * {@code List} using {@link List#of(Object[])}, and calls
-     * {@link #lore(List)} using the new {@code List} as the argument.
+     * {@link List} using {@link List#of(Object[])}, and calls
+     * {@link #lore(List)} using the new {@link List} as the argument.
      *
      * @param lines the lines of the lore
      * @return the builder
@@ -109,10 +104,10 @@ public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilde
 
     /**
      * Directly modifies the lore with a {@link Consumer}.
-     * If the item has no lore, an empty {@code List} will
-     * be supplied to the {@code Consumer} instead.
+     * If the item has no lore, an empty {@link List} will
+     * be supplied to the {@link Consumer} instead.
      *
-     * @param consumer the {@code Consumer} to modify the lore with
+     * @param consumer the {@link Consumer} to modify the lore with
      * @return the builder
      */
     public @NonNull B loreModifier(final @NonNull Consumer<@NonNull List<Component>> consumer) {
@@ -122,7 +117,7 @@ public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilde
 
         consumer.accept(lore);
 
-        this.itemMeta.lore(lore);
+        this.itemMeta.lore(ComponentUtil.disableItalicsList(lore));
         return (B) this;
     }
 

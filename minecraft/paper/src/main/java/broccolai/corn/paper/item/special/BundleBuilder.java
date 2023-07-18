@@ -4,13 +4,14 @@ import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BundleMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link BundleMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link BundleMeta}.
  */
 @SuppressWarnings("unused")
 public final class BundleBuilder extends AbstractPaperItemBuilder<BundleBuilder, BundleMeta> {
@@ -20,34 +21,34 @@ public final class BundleBuilder extends AbstractPaperItemBuilder<BundleBuilder,
     }
 
     /**
-     * Creates an {@code BundleBuilder}.
+     * Creates an {@link BundleBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code BundleBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link BundleBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BundleBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new BundleBuilder(itemStack, castMeta(itemStack.getItemMeta(), BundleMeta.class));
     }
 
     /**
-     * Creates an {@code BundleBuilder}.
+     * Creates an {@link BundleBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code BundleBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link BundleBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BundleBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return BundleBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code BundleBuilder} of type {@link Material#BUNDLE}. A convenience method.
+     * Creates a {@link BundleBuilder} of type {@link Material#BUNDLE}. A convenience method.
      *
-     * @return instance of {@code BundleBuilder}
+     * @return instance of {@link BundleBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull BundleBuilder ofBundle() throws IllegalArgumentException {
         return ofType(Material.BUNDLE);
@@ -74,7 +75,7 @@ public final class BundleBuilder extends AbstractPaperItemBuilder<BundleBuilder,
     }
 
     /**
-     * Adds a item.
+     * Adds an item.
      *
      * @param item the item to add
      * @return the builder

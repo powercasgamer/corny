@@ -5,6 +5,7 @@ import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.TropicalFish;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.TropicalFishBucketMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -19,34 +20,34 @@ public final class TropicalFishBucketBuilder extends AbstractPaperItemBuilder<Tr
     }
 
     /**
-     * Creates a {@code TropicalFishBucketBuilder}.
+     * Creates a {@link TropicalFishBucketBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code TropicalFishBucketBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link TropicalFishBucketBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull TropicalFishBucketBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new TropicalFishBucketBuilder(itemStack, castMeta(itemStack.getItemMeta(), TropicalFishBucketMeta.class));
     }
 
     /**
-     * Creates a {@code TropicalFishBucketBuilder}.
+     * Creates a {@link TropicalFishBucketBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code TropicalFishBucketBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link TropicalFishBucketBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link org.bukkit.inventory.meta.ItemMeta} is not the correct type
      */
     public static @NonNull TropicalFishBucketBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return TropicalFishBucketBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code TropicalFishBucketBuilder} of type {@link Material#TROPICAL_FISH_BUCKET}. A convenience method.
+     * Creates a {@link TropicalFishBucketBuilder} of type {@link Material#TROPICAL_FISH_BUCKET}. A convenience method.
      *
-     * @return instance of {@code TropicalFishBucketBuilder}
+     * @return instance of {@link TropicalFishBucketBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull TropicalFishBucketBuilder ofTropicalFishBucket() throws IllegalArgumentException {
         return ofType(Material.TROPICAL_FISH_BUCKET);

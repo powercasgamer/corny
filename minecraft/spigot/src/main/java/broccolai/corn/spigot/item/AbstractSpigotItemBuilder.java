@@ -66,8 +66,8 @@ public abstract class AbstractSpigotItemBuilder<B extends AbstractSpigotItemBuil
 
     /**
      * A utility method that converts the provided {@code lines} into a
-     * {@code List} using {@link List#of(Object[])}, and calls
-     * {@link #lore(List)} using the new {@code List} as the argument.
+     * {@link List} using {@link List#of(Object[])}, and calls
+     * {@link #lore(List)} using the new {@link List} as the argument.
      *
      * @param lines the lines of the lore
      * @return the builder
@@ -78,10 +78,10 @@ public abstract class AbstractSpigotItemBuilder<B extends AbstractSpigotItemBuil
 
     /**
      * Directly modifies the lore with a {@link Consumer}.
-     * If the item has no lore, an empty {@code List} will
-     * be supplied to the {@code Consumer} instead.
+     * If the item has no lore, an empty {@link List} will
+     * be supplied to the {@link Consumer} instead.
      *
-     * @param consumer the {@code Consumer} to modify the lore with
+     * @param consumer the {@link Consumer} to modify the lore with
      * @return the builder
      */
     public @NonNull B loreModifier(final @NonNull Consumer<@NonNull List<String>> consumer) {

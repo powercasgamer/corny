@@ -3,6 +3,7 @@ package broccolai.corn.paper.item.special;
 import broccolai.corn.paper.item.AbstractPaperItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SuspiciousStewMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -22,34 +23,34 @@ public final class SuspiciousStewBuilder extends AbstractPaperItemBuilder<Suspic
     }
 
     /**
-     * Creates a {@code SuspiciousStewBuilder}.
+     * Creates a {@link SuspiciousStewBuilder}.
      *
-     * @param itemStack the {@code ItemStack} to base the builder off of
-     * @return instance of {@code SuspiciousStewBuilder}
-     * @throws IllegalArgumentException if the {@code itemStack}'s {@code ItemMeta} is not the correct type
+     * @param itemStack the {@link ItemStack} to base the builder off of
+     * @return instance of {@link SuspiciousStewBuilder}
+     * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull SuspiciousStewBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
         return new SuspiciousStewBuilder(itemStack, castMeta(itemStack.getItemMeta(), SuspiciousStewMeta.class));
     }
 
     /**
-     * Creates a {@code SuspiciousStewBuilder}.
+     * Creates a {@link SuspiciousStewBuilder}.
      *
-     * @param material the {@code Material} to base the builder off of
-     * @return instance of {@code SuspiciousStewBuilder}
+     * @param material the {@link Material} to base the builder off of
+     * @return instance of {@link SuspiciousStewBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull SuspiciousStewBuilder ofType(final @NonNull Material material) throws IllegalArgumentException {
         return SuspiciousStewBuilder.of(getItem(material));
     }
 
     /**
-     * Creates a {@code SuspiciousStewBuilder} of type {@link Material#SUSPICIOUS_STEW}. A convenience method.
+     * Creates a {@link SuspiciousStewBuilder} of type {@link Material#SUSPICIOUS_STEW}. A convenience method.
      *
-     * @return instance of {@code SuspiciousStewBuilder}
+     * @return instance of {@link SuspiciousStewBuilder}
      * @throws IllegalArgumentException if the {@code material} is not an obtainable item,
-     *                                  or if the {@code material}'s {@code ItemMeta} is not the correct type
+     *                                  or if the {@code material}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull SuspiciousStewBuilder ofSuspiciousStew() throws IllegalArgumentException {
         return ofType(Material.SUSPICIOUS_STEW);
@@ -84,7 +85,7 @@ public final class SuspiciousStewBuilder extends AbstractPaperItemBuilder<Suspic
      * Adds a custom effect.
      *
      * @param customEffect the custom effect to add
-     * @param overwrite    whether to overwrite {@code PotionEffect}s of the same type
+     * @param overwrite    whether to overwrite {@link PotionEffect}s of the same type
      * @return the builder
      */
     public @NonNull SuspiciousStewBuilder addCustomEffect(final @NonNull PotionEffect customEffect, final boolean overwrite) {

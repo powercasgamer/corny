@@ -11,10 +11,10 @@ public final class Numbers {
     }
 
     /**
-     * Get the value of a String or null if it could not be read
+     * Get the value of a {@link String} or null if it could not be read
      *
-     * @param input    String to get the number from
-     * @param function Function to be used to find value
+     * @param input    {@link String} to get the number from
+     * @param function {@link Function} to be used to find value
      * @param <T>      Type of number
      * @return Parsed number or null if it could not be parsed
      */
