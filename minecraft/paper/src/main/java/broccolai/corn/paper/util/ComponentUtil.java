@@ -35,9 +35,7 @@ public final class ComponentUtil {
     public static List<Component> disableItalicsList(final Collection<? extends Component> components) {
         final List<Component> newComponents = new ArrayList<>(components.size());
         for (final Component component : components) {
-            if (component.decoration(TextDecoration.ITALIC) == TextDecoration.State.NOT_SET) {
-                newComponents.add(component.decoration(TextDecoration.ITALIC, false));
-            }
+            newComponents.add(disableItalics(component));
         }
 
         return newComponents;
