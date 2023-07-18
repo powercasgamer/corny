@@ -1,3 +1,6 @@
+/**
+ * Spigot-specific utilities
+ */
 module broccolai.corn.spigot {
     requires static org.checkerframework.checker.qual;
     requires org.bukkit;

@@ -1,3 +1,6 @@
+/**
+ * Paper-specific utilities
+ */
 module broccolai.corn.paper {
     requires static org.checkerframework.checker.qual;
     requires net.kyori.adventure;
