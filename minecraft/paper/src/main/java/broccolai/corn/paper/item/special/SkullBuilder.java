@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link SkullMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link SkullMeta}.
  */
 @SuppressWarnings("unused")
 public final class SkullBuilder extends AbstractPaperItemBuilder<SkullBuilder, SkullMeta> {

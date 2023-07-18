@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.TropicalFishBucketMeta;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link TropicalFishBucketMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link TropicalFishBucketMeta}.
  */
 @SuppressWarnings("unused")
 public final class TropicalFishBucketBuilder extends AbstractPaperItemBuilder<TropicalFishBucketBuilder, TropicalFishBucketMeta> {
@@ -54,7 +54,7 @@ public final class TropicalFishBucketBuilder extends AbstractPaperItemBuilder<Tr
     }
 
     /**
-     * Gets the {@code Pattern}.
+     * Gets the {@link TropicalFish.Pattern}.
      *
      * @return the pattern
      */
@@ -63,7 +63,7 @@ public final class TropicalFishBucketBuilder extends AbstractPaperItemBuilder<Tr
     }
 
     /**
-     * Sets the {@code Pattern}.
+     * Sets the {@link TropicalFish.Pattern}.
      *
      * @param pattern the pattern
      * @return the builder

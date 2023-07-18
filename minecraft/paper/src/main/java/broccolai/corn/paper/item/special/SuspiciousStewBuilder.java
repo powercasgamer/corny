@@ -13,7 +13,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.List;
 
 /**
- * Modifies {@link ItemStack}s that have an {@code ItemMeta} of {@link SuspiciousStewMeta}.
+ * Modifies {@link ItemStack}s that have an {@link ItemMeta} of {@link SuspiciousStewMeta}.
  */
 @SuppressWarnings("unused")
 public final class SuspiciousStewBuilder extends AbstractPaperItemBuilder<SuspiciousStewBuilder, SuspiciousStewMeta> {

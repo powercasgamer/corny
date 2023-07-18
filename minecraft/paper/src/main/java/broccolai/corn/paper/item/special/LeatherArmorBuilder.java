@@ -23,7 +23,7 @@ public final class LeatherArmorBuilder extends AbstractPaperItemBuilder<LeatherA
      * Creates a {@link LeatherArmorBuilder}.
      *
      * @param itemStack the {@link ItemStack} to base the builder off of
-     * @return instance of {@code LeatherArmorBuilder}
+     * @return instance of {@link LeatherArmorBuilder}
      * @throws IllegalArgumentException if the {@code itemStack}'s {@link ItemMeta} is not the correct type
      */
     public static @NonNull LeatherArmorBuilder of(final @NonNull ItemStack itemStack) throws IllegalArgumentException {
