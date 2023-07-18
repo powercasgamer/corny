@@ -143,7 +143,7 @@ public abstract class AbstractItemBuilder<B extends AbstractItemBuilder<B, M>, M
     /**
      * Adds data to the {@link ItemStack}'s {@link org.bukkit.persistence.PersistentDataContainer}.
      *
-     * @param key    the {link NamespacedKey} to use
+     * @param key    the {@link NamespacedKey} to use
      * @param type   the {@link PersistentDataType} to use
      * @param object the data to set
      * @param <T>    the primary object type of the data

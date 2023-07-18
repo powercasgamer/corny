@@ -86,6 +86,8 @@ public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilde
         }
 
         // sidestep default formatting by creating a dummy component and appending the component to that
+        System.out.println("lines: " + lines);
+        System.out.println("lines w/o italics: " + (ComponentUtil.disableItalicsList(lines)));
         this.itemMeta.lore(ComponentUtil.disableItalicsList(lines));
         return (B) this;
     }
