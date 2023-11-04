@@ -6,5 +6,5 @@ dependencies {
     api(projects.cornMinecraftSpigot)
 
     compileOnly(libs.paper.api)
-    compileOnly("com.google.guava", "guava", "30.1.1-jre")
+    compileOnly("com.google.guava", "guava", "32.1.3-jre")
 }
