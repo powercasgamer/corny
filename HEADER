@@ -1,6 +1,7 @@
-${license.title}
-Copyright (C) ${license.years} ${license.owner}
-${license.mailto}
+This file is part of ${name}, licensed under the GNU Lesser General Public License (LGPL) version 3 license.
+
+Copyright (C)  ${year} ${author}
+Copyright (C)  ${year} Contributors
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public

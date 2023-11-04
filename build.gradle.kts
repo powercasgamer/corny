@@ -1,7 +1,12 @@
+import com.diffplug.gradle.spotless.FormatExtension
+import com.diffplug.gradle.spotless.SpotlessExtension
 import net.kyori.indra.IndraCheckstylePlugin
 import net.kyori.indra.IndraPlugin
 import net.kyori.indra.IndraPublishingPlugin
+import net.kyori.indra.licenser.spotless.HeaderFormat
+import net.kyori.indra.licenser.spotless.IndraSpotlessLicenserExtension
 import net.kyori.indra.licenser.spotless.IndraSpotlessLicenserPlugin
+import java.util.*
 
 plugins {
     id("net.kyori.indra")
@@ -36,13 +41,44 @@ subprojects {
         testImplementation(rootProject.libs.junit.engine)
     }
 
+    configure<IndraSpotlessLicenserExtension> {
+        headerFormat(HeaderFormat.starSlash())
+        licenseHeaderFile(rootProject.projectDir.resolve("HEADER"))
 
-    indraSpotlessLicenser {
-        licenseHeaderFile(rootProject.file("HEADER"))
+        val currentYear = Calendar.getInstance().apply {
+            time = Date()
+        }.get(Calendar.YEAR)
+        val createdYear = 2020
+        val year = if (createdYear == currentYear) createdYear.toString() else "$createdYear-$currentYear"
+
+        property("name", providers.gradleProperty("projectName").getOrElse("corn"))
+        property("year", year)
+        property("description", project.description ?: "A Project")
+        property("author", "broccolai")
+    }
+
+    configure<SpotlessExtension> {
+        fun FormatExtension.applyCommon() {
+            trimTrailingWhitespace()
+            endWithNewline()
+            encoding("UTF-8")
+            toggleOffOn()
+        }
+        java {
+            importOrderFile(rootProject.file(".spotless/mizule.importorder"))
+            removeUnusedImports()
+            formatAnnotations()
+            applyCommon()
+            target("*/src/*/java/**/*.java")
+            target("*/src/*/templates/**/*.java")
+        }
+        kotlinGradle {
+            applyCommon()
+        }
     }
 
     indra {
-        mitLicense()
+        lgpl3OnlyLicense() // or later?
 
         checkstyle("9.0")
 
