@@ -28,7 +28,7 @@ public final class Numbers {
 
         try {
             return function.apply(input);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
             return null;
         }
     }

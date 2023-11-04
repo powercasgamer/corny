@@ -1,6 +1,6 @@
+import net.kyori.indra.IndraCheckstylePlugin
 import net.kyori.indra.IndraPlugin
 import net.kyori.indra.IndraPublishingPlugin
-import net.kyori.indra.IndraCheckstylePlugin
 
 plugins {
     id("net.kyori.indra")
@@ -40,7 +40,7 @@ subprojects {
 
         javaVersions {
             target(17)
-            testWith(17)
+            testWith(17, 21)
         }
 
         github("powercasgamer", "corn") {
@@ -48,8 +48,8 @@ subprojects {
             publishing(true)
         }
 
-    publishSnapshotsTo("mizule", "https://repo.mizule.dev/snapshots")
-    publishReleasesTo("mizule", "https://repo.mziule.dev/releases")
+        publishSnapshotsTo("mizule", "https://repo.mizule.dev/snapshots")
+        publishReleasesTo("mizule", "https://repo.mziule.dev/releases")
 
         configurePublications {
             pom {
@@ -57,6 +57,10 @@ subprojects {
                     developer {
                         id.set("broccolai")
                         email.set("me@broccol.ai")
+                    }
+                    developer {
+                        id.set("powercas_gamer")
+                        email.set("cas@mizule.dev")
                     }
                 }
             }
