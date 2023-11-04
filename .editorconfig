@@ -13,6 +13,10 @@ ij_formatter_tags_enabled = false
 ij_smart_tabs = false
 ij_wrap_on_typing = true
 
+[*.yml]
+indent_size = 2
+ij_yaml_keep_indents_on_empty_lines = false
+
 [*.conf]
 indent_size = 2
 tab_width = 2
@@ -1003,11 +1007,3 @@ ij_html_space_around_equality_in_attribute = false
 ij_html_space_inside_empty_tag = false
 ij_html_text_wrap = normal
 ij_html_uniform_ident = false
-
-[{*.yaml, *.yml}]
-indent_size = 2
-ij_yaml_keep_indents_on_empty_lines = false
-ij_yaml_keep_line_breaks = true
-ij_yaml_space_before_colon = true
-ij_yaml_spaces_within_braces = true
-ij_yaml_spaces_within_brackets = true
