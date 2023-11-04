@@ -80,7 +80,7 @@ subprojects {
     indra {
         lgpl3OnlyLicense() // or later?
 
-        checkstyle("9.0")
+        checkstyle("10.12.4")
 
         javaVersions {
             target(17)

@@ -4,6 +4,6 @@ repositories {
 
 dependencies {
     compileOnly(libs.spigot.api)
-    compileOnly("com.google.guava", "guava", "32.1.3-jre")
-    compileOnly("org.jetbrains", "annotations", "24.0.1")
+    compileOnly(libs.guava)
+    compileOnly(libs.annotations)
 }
