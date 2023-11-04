@@ -1,5 +1,5 @@
 plugins {
-    id("ca.stellardrift.polyglot-version-catalogs") version "6.0.1"
+    id("ca.stellardrift.polyglot-version-catalogs") version "6.1.0"
 }
 
 rootProject.name = "corn-parent"
