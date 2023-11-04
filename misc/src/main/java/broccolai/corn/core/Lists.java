@@ -86,6 +86,28 @@ public final class Lists {
     }
 
     /**
+     * Find the first element in a List, matching a predicate.
+     *
+     * @param input the list to search
+     * @param predicate the predicate to match against
+     * @param <T> type of list elements
+     * @return the found value
+     */
+    public static <@Nullable T> @NonNull T first(
+            final @NonNull List<T> input,
+            final @NonNull Predicate<T> predicate
+    ) {
+        for (int i = 0; i < input.size(); i++) {
+            final T value = input.get(i);
+            if (predicate.test(value)) {
+                return value;
+            }
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    /**
      * Find the last element in a List, matching a predicate.
      *
      * @param input the list to search
