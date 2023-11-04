@@ -106,10 +106,32 @@ public abstract class AbstractPaperItemBuilder<B extends AbstractPaperItemBuilde
         }
 
         // sidestep default formatting by creating a dummy component and appending the component to that
-        System.out.println("lines: " + lines);
-        System.out.println("lines w/o italics: " + (ComponentUtil.disableItalicsList(lines)));
         this.itemMeta.lore(ComponentUtil.disableItalicsList(lines));
         return (B) this;
+    }
+
+    /**
+     * A utility method that converts the provided {@code lines} into a
+     * {@link List} using {@link List#of(Object[])}, and calls
+     * {@link #lore(List)} using the new {@link List} as the argument.
+     *
+     * @param line the line of the lore
+     * @return the builder
+     */
+    public @NonNull B lore(final @NonNull Component line) {
+        return this.lore(List.of(line));
+    }
+
+    /**
+     * A utility method that converts the provided {@code lines} into a
+     * {@link List} using {@link List#of(Object[])}, and calls
+     * {@link #lore(List)} using the new {@link List} as the argument.
+     *
+     * @param lines the lines of the lore
+     * @return the builder
+     */
+    public @NonNull B lore(final @NonNull Component... lines) {
+        return this.lore(List.of(lines));
     }
 
     /**
