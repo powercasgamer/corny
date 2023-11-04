@@ -9,7 +9,7 @@ plugins {
     id("com.adarshr.test-logger")
 }
 
-group = "broccolai.corn"
+group = "dev.mizule.corn"
 description = "extremely opinionated mostly personal java utilities"
 
 subprojects {
@@ -43,13 +43,13 @@ subprojects {
             testWith(17)
         }
 
-        github("broccolai", "corn") {
+        github("powercasgamer", "corn") {
             ci(true)
             publishing(true)
         }
 
-    publishSnapshotsTo("drink", "https://new-repo.deltapvp.net/snapshots")
-    publishReleasesTo("drink", "https://new-repo.deltapvp.net/releases")
+    publishSnapshotsTo("mizule", "https://repo.mizule.dev/snapshots")
+    publishReleasesTo("mizule", "https://repo.mziule.dev/releases")
 
         configurePublications {
             pom {
