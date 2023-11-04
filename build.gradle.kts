@@ -1,11 +1,13 @@
 import net.kyori.indra.IndraCheckstylePlugin
 import net.kyori.indra.IndraPlugin
 import net.kyori.indra.IndraPublishingPlugin
+import net.kyori.indra.licenser.spotless.IndraSpotlessLicenserPlugin
 
 plugins {
     id("net.kyori.indra")
     id("net.kyori.indra.publishing") apply false
     id("net.kyori.indra.checkstyle") apply false
+    id("net.kyori.indra.licenser.spotless") apply false
     id("com.adarshr.test-logger")
 }
 
@@ -16,6 +18,7 @@ subprojects {
     apply<IndraPlugin>()
     apply<IndraPublishingPlugin>()
     apply<IndraCheckstylePlugin>()
+    apply<IndraSpotlessLicenserPlugin>()
     apply<com.adarshr.gradle.testlogger.TestLoggerPlugin>()
 
     repositories {
@@ -31,6 +34,11 @@ subprojects {
 
         testImplementation(rootProject.libs.junit.api)
         testImplementation(rootProject.libs.junit.engine)
+    }
+
+
+    indraSpotlessLicenser {
+        licenseHeaderFile(rootProject.file("HEADER"))
     }
 
     indra {
